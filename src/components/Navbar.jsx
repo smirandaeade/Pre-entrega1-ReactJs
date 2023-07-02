@@ -22,7 +22,7 @@ const Navbar = () => {
                     <div className="md:flex items-center hidden lg:w-auto lg:mr-56 xl:mr-96 h-full">
                         <Menu />
                     </div>
-                    <div className="flex-shrink-0 hidden md:block">
+                    <div className="hidden md:block">
                         <Carrito />
                     </div>
                     <div onClick={handleHamburguerClick} className="z-50 focus:outline-none md:hidden">
@@ -31,9 +31,13 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`${showMenu ? "block" : "hidden"} flex flex-col w-full md:hidden fixed top-auto -z-10 right-0 px-8 py-8 bg-white h-full`}>
-                <Menu />
-                <Carrito />
+            <div className={`${showMenu ? "block" : "hidden"} flex flex-col w-full md:hidden fixed top-auto -z-10 px-8 py-8 bg-white h-full`}>
+
+
+                <div className='block w-[25rem] m-auto mt-0'>
+                    <Menu />
+                    <Carrito />
+                </div>
             </div>
         </nav>
     );
