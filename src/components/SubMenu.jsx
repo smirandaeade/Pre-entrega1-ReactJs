@@ -12,15 +12,15 @@ const SubMenu = ({activeMenu}) => {
     }
 
     return (
-        <div className={`absolute top-16 p-10 pl-5 ${subMenuColor}`}>
-            <ul>
-                <li>
+        <div className={`absolute top-16 w-32 ${subMenuColor}`}>
+            <ul className='p-3'>
+                <li className='mb-3'>
                     <a href="#">Consolas</a>
                 </li>
-                <li>
+                <li className='mb-3'>
                     <a href="#">Juegos</a>
                 </li>
-                <li>
+                <li className='mb-3'>
                     <a href="#">Accesorios</a>
                 </li>
             </ul>

@@ -6,8 +6,15 @@ const Menu = () => {
     const [activeMenu, setActiveMenu] = useState(null);
 
     const handleSubMenuClick = (menu) => {
-        setShowSubMenu(!showSubMenu);
-        setActiveMenu(menu);
+        if (activeMenu === menu) {
+            // Si se hace clic en el mismo menú, simplemente se cierra el submenú actual
+            setShowSubMenu(false);
+            setActiveMenu(null);
+        } else {
+            // Si se hace clic en un menú diferente, se actualiza el submenú y el menú activos
+            setShowSubMenu(true);
+            setActiveMenu(menu);
+        }
     };
 
     return (
@@ -39,7 +46,7 @@ const Menu = () => {
                 <div className="md:w-20 text-white bg-lime-700 hover:bg-lime-600 md:h-full items-center flex rounded-full mb-2 md:mb-0 md:rounded-none justify-center">
                     <p className="p-2 md:m-auto justify-center">Xbox</p>
                 </div>
-                {showSubMenu && activeMenu === 'Xbox' && <SubMenu activeMenu={activeMenu}/>}
+                {showSubMenu && activeMenu === 'Xbox' && <SubMenu activeMenu={activeMenu} />}
             </a>
             <a
                 onClick={() => handleSubMenuClick('Nintendo Switch')}
@@ -49,7 +56,7 @@ const Menu = () => {
                 <div className="md:w-auto md:w-30 text-white bg-red-700 hover:bg-red-500 md:h-full items-center flex rounded-full mb-2 md:mb-0 md:rounded-none justify-center">
                     <p className="p-2">Nintendo Switch</p>
                 </div>
-                {showSubMenu && activeMenu === 'Nintendo Switch' && <SubMenu activeMenu={activeMenu}/>}
+                {showSubMenu && activeMenu === 'Nintendo Switch' && <SubMenu activeMenu={activeMenu} />}
             </a>
         </>
     );
