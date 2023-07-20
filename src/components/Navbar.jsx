@@ -4,7 +4,8 @@ import Menu from './Menu';
 import Hamburguer from './Hamburguer';
 import Logo from './Logo';
 
-const Navbar = () => {
+
+const Navbar = ({onMenuClick}) => {
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -20,7 +21,7 @@ const Navbar = () => {
                         <Logo />
                     </div>
                     <div className="md:flex items-center hidden lg:w-auto lg:mr-56 xl:mr-96 h-full">
-                        <Menu />
+                        <Menu onMenuClick={onMenuClick}/>
                     </div>
                     <div className="hidden md:block">
                         <Carrito />
@@ -31,16 +32,17 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`${showMenu ? "block" : "hidden"} flex flex-col w-full md:hidden fixed top-auto -z-10 px-8 py-8 bg-white h-full`}>
+            <div className={`${showMenu ? "block z-50" : "hidden"} flex flex-col w-full md:hidden fixed top-auto -z-10 px-8 py-8 bg-white h-full`}>
 
 
-                <div className='block w-[25rem] m-auto mt-0'>
-                    <Menu />
+                <div className='w-[25rem] m-auto mt-0'>
+                    <Menu onMenuClick={onMenuClick}/>
                     <Carrito />
                 </div>
             </div>
         </nav>
     );
+    
 };
 
 export default Navbar;
